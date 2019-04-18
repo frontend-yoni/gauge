@@ -1,4 +1,5 @@
 <html lang="en">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <head>
 
     <link rel="stylesheet" href="src/Common/resources/JJCommonStyle.css">
@@ -50,24 +51,30 @@
         font-family: Arial;
     }
 
-    input {
+    .inputArea {
         position: absolute;
-        top: 10px;
-        left: 50%;
+        width: 100%;
+        top: 25px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    input {
         width: 200px;
         height: 40px;
-        transform: translateX(-50%);
+        max-width: 50%;
         font-size: 30px;
+        border: 1px solid gray;
+        padding-left: 10px;
     }
 
     .randomButton {
-        position: absolute;
-        top: 10px;
-        left: 50%;
-        transform: translateX(-50%) translateX(160px) translateY(5px);
-        height: 30px;
-        font-size: 20px;
+        height: 40px;
+        font-size: 24px;
         cursor: pointer;
+        margin-left: 10px;
     }
 </style>
 
@@ -149,7 +156,9 @@
 <body>
     <div class="testDiv">
     </div>
-    <input type="number" step="0.1"/>
-    <button class="randomButton">Random!</button>
+    <div class="inputArea">
+        <input type="number" step="0.1"/>
+        <button class="randomButton">Random!</button>
+    </div>
 </body>
 </html>
