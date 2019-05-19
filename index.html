@@ -83,7 +83,7 @@
     let RADIUS = 95;
     let THICKNESS = 15;
 
-    let startValue = 0.85;
+    let startValue = 85;
     let testDiv;
     let gauge = new GaugeBonBon();
     let input;
@@ -110,8 +110,8 @@
 
     function drawComponent() {
         gauge.setRadiusAndThickness(RADIUS, THICKNESS);
-        gauge.setData(startValue, 1);
-        gauge.setLabel('Registered');
+        gauge.setData(startValue, 100);
+        gauge.setLabel('% of Wow!');
         gauge.setExternalDiv(testDiv);
         gauge.drawComponent();
     }
@@ -131,7 +131,7 @@
 
     function updateGaugeWithAnimation() {
         clearTimeout(timeoutObj);
-        gauge.updateData(input.value, 1);
+        gauge.updateData(input.value, 100);
     }
 
     function onRandomClick(e) {
@@ -139,12 +139,13 @@
         let val = +input.value;
         if (val == 0) {
             val = Math.random();
-        } else if (val > 2) {
-            val = Math.random() * 2;
+        } else if (val > 200) {
+            val = Math.random() * 200;
         } else {
-            val = val - 0.5 + Math.random() * 1.5;
+            val = val -50 + Math.random() * 150;
         }
-        val = +val.toFixed(3);
+
+        val = Math.round(val);
         val = Math.max(0, val);
         input.value = val;
 
@@ -157,7 +158,7 @@
     <div class="testDiv">
     </div>
     <div class="inputArea">
-        <input type="number" step="0.1"/>
+        <input type="number" step="1"/>
         <button class="randomButton">Random!</button>
     </div>
 </body>
